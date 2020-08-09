@@ -25,12 +25,16 @@ server {
 	}
 	location /squirrelmail {
 		location ~ \.php$ {
+		auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3;  
 			include snippets/fastcgi-php.conf;
 			fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
 		}
 	}
 	location /phpmyadmin {
 		root /usr/share;
+		auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3; 
 		location ~ \.php$ {
 			include snippets/fastcgi-php.conf;
 			fastcgi_pass unix:/run/php/php7.1-fpm.sock;
@@ -38,6 +42,8 @@ server {
 	}
 	location /adminer {
 		root /usr/share/adminer;
+		auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3; 		
 		location ~ \.php$ {
 			include snippets/fastcgi-php.conf;
 			fastcgi_pass unix:/run/php/php7.2-fpm.sock;
