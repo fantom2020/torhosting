@@ -15,7 +15,7 @@ server {
 	listen unix:/var/run/nginx.sock backlog=2048 default_server;
 	root /var/www/html;
 	index index.php;
-	server_name CHANGE-THIS-TO-YOUR-OWN-ONION.onion *.CHANGE-THIS-TO-YOUR-OWN-ONION.onion hosting.CHANGE-THIS-TO-YOUR-OWN-DOMAIN.com CHANGE-THIS-TO-YOUR-OWN-ONION.onion *.CHANGE-THIS-TO-YOUR-OWN-ONION.onion;
+	server_name CHANGE-THIS-TO-YOUR-OWN-ONION.onion *.CHANGE-THIS-TO-YOUR-OWN-ONION.onion hosting.CHANGE-THIS-TO-YOUR-OWN-DOMAIN.com;
 	location / {
 		try_files $uri $uri/ =404;
 		location ~ \.php$ {
