@@ -354,6 +354,76 @@ error_page 404 =200 https://CHANGE-THIS-TO-YOUR-OWN-ONION.onion;
         }
 }
 
+To enabled the password system to work and lock your host down add these lines in default or other virtual hosts:
+
+    auth_basic "Restricted Content";
+    auth_basic_user_file /etc/nginx/.htpasswd3;
+
+Example:
+server {
+  listen [::]:80;
+  server_name *.example.com;
+  location / {
+    return 301 https://example.com$request_uri;
+  }
+}
+server {
+# add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; default-src 'self'; frame-ancestors 'self'; disown-opener; form-action 'self'; base-uri 'none'; report-uri https://example.com/csp-report.php" always;
+  add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; default-src 'self'; frame-ancestors 'self'; disown-opener; form-action 'self'; base-uri 'none'" always;
+  add_header Referrer-Policy origin-when-cross-origin always;
+  add_header X-Content-Type-Options nosniff always;
+  add_header X-Xss-Protection "1; mode=block" always;
+  listen [::]:80 ipv6only=off fastopen=100 backlog=2048 default_server;
+  listen unix:/var/run/nginx.sock backlog=2048 default_server;
+  root /var/www/html;
+  index index.php;
+  server_name example.onion *.example.onion example.com;
+  location / {
+    try_files $uri $uri/ =404;
+    auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3;
+    location ~ \.php$ {
+      include snippets/fastcgi-php.conf;
+      fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+  }
+  location /squirrelmail {
+    location ~ \.php$ {
+      include snippets/fastcgi-php.conf;
+      fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
+  }
+  location /phpmyadmin {
+    root /usr/share;
+    auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3;
+    location ~ \.php$ {
+      include snippets/fastcgi-php.conf;
+      fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    }
+  }
+  location /adminer {
+    root /usr/share/adminer;
+    auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd3;   
+    location ~ \.php$ {
+      include snippets/fastcgi-php.conf;
+      fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+    }
+  }
+  location /externals/jush/ {
+    root /usr/share/adminer;
+  }
+  location /nginx/ {
+    root /var/log/;
+    internal;
+  }
+}
+
+
+
+
+
 If you wish to create a email server on the system follow this guide. 
 https://workaround.org/ispmail/wheezy/
 Other
