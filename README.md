@@ -174,9 +174,16 @@ find ./ -type f -readable -writable -exec sed -i "s/CHANGE-THIS-TO-YOUR-OWN-DOMA
 
 IMPORTANT: no spaces in name! one word only.
 
-Part 2 do not run this yet wait till after reboot
+Now to get your unique new onoin v3 domain type the following from the torhosting-master folder
+cp etc/tor/torrc /etc/tor/torrc
+service tor restart
+cat /var/lib/tor/hidden_service/hostname
+Make a note of the onion address and copy it to part 2 then issue the find command.
+
+Part 2 
 find ./ -type f -readable -writable -exec sed -i "s/CHANGE-THIS-TO-YOUR-OWN-ONION.onion/XXXXYOUR-ONION-HEREXXXXX.onion/g" {} \;
 
+Optional:
 To get your own new onion address v3 you will need to download and compile cathugger available here:
 https://github.com/cathugger/mkp224o you can do this on your local machine to get the name or the server your choice, then upload
 the keys to the server in the steps later in /var/lib/tor/hidden_service/
@@ -212,7 +219,7 @@ sudo reboot
 sudo -i 
 screen
 
-Now we will display the new onion name that was just created and change it to our vannity address.
+Now we will display the new onion name that was just created and can change it to our vannity address if needed.
 --------------------------------------------------------------------------------------------------
 
 Now there should be an onion domain in /var/lib/tor/hidden_service/hostname:
@@ -221,19 +228,6 @@ cat /var/lib/tor/hidden_service/hostname
 
 you now have your new onion v3 address.
 
-cd /var/www/
-
-Part 2 now (CHANGE-THIS-TO-YOUR-OWN-ONION) to your onion address 
-
-find ./ -type f -readable -writable -exec sed -i "s/CHANGE-THIS-TO-YOUR-OWN-ONION.onion/XXXXYOUR-ONION-HEREXXXXX.onion/g" {} \;
-
-cd /var/nginx/
-
-run again 
-
-find ./ -type f -readable -writable -exec sed -i "s/CHANGE-THIS-TO-YOUR-OWN-ONION.onion/XXXXYOUR-ONION-HEREXXXXX.onion/g" {} \;
-
-cd
 
 Now run all this from command line as root.
 --------------------------------------------
