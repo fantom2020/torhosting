@@ -36,9 +36,9 @@ if(isset($_REQUEST['action']) && isset($_REQUEST['onion']) && $_REQUEST['action'
 
 header('Content-Type: text/html; charset=UTF-8');
 echo '<!DOCTYPE html><html><head>';
-echo '<title>Anon\'s Hosting - Dashboard</title>';
+echo '<title>Fantom\'s Hosting - Dashboard</title>';
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-echo '<meta name="author" content="Anon Site">';
+echo '<meta name="author" content="Fantom Site">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 //included new theme start
 echo "<link rel=\"stylesheet\" href=\"/css/st.css\">\n";
