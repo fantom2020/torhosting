@@ -11,9 +11,9 @@ if($_SERVER['REQUEST_METHOD']==='HEAD'){
 	exit; // headers sent, no further processing needed
 }
 echo '<!DOCTYPE html><html><head>';
-echo '<title>Anon\'s Hosting - Login</title>';
+echo '<title>Fantom\'s Hosting - Login</title>';
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-echo '<meta name="author" content="Anon Site">';
+echo '<meta name="author" content="Fantom Site">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 echo '</head><body>';
 echo '<h1>Hosting - Admin panel</h1>';
