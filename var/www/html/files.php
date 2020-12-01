@@ -257,9 +257,9 @@ $dir=htmlspecialchars($dir);
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="author" content="Anon Site">
+<meta name="author" content="Fantom Site">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anon's Hosting - FileManager - Index of <?php echo $dir; ?></title>
+<title>Fantom's Hosting - FileManager - Index of <?php echo $dir; ?></title>
 <style type="text/css">.list td:nth-child(3){word-break:break-all;} .list td:nth-child(5){text-align:right;} .list tr{height:28px;}
 .back{min-width:22px; background:no-repeat url(data:img/gif;base64,R0lGODlhFAAWAPH/AAAAADMzM2ZmZpmZmSH5BAUAAAQALAAAAAAUABYAAANLSLrc/oKE8CoZM1O7os7c9WmcN04WdoKQdBIANypAHG5YbS/7kus1RlDxA+p4xqSRpmwCKE7nINqMwKi6wEAY1VaS3tBV/OiRz4sEADs=);}
 .dir{min-width:22px; background:no-repeat url(data:img/gif;base64,R0lGODlhFAAWAPH/AAAAADMzM5lmM//MmSH5BAUAAAQALAAAAAAUABYAAANUSLrc/jDKSRm4+E4wuu9AxH1kpimAQHpqiQ5CLMcrHI71GgdXngs8nI8F7A1JReFxZzyygk4iNNpJUmFWmFbF3cJ4hNRsPA6Aw+a0es0LLEzwjDsBADs=);}
@@ -359,7 +359,7 @@ function send_not_found(){
 
 function send_login(){
 	echo '<!DOCTYPE html><html><head>';
-	echo '<title>Anon\'s Hosting - FileManager - Login</title>';
+	echo '<title>Fantom\'s Hosting - FileManager - Login</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 	echo '<meta name=viewport content="width=device-width, initial-scale=1">';
 	echo '</head><body>';
@@ -406,7 +406,7 @@ function ftp_recursive_delete($ftp, $file){
 
 function send_rename($dir){
 	echo '<!DOCTYPE html><html><head>';
-	echo '<title>Anon\'s Hosting - FileManager - Rename file</title>';
+	echo '<title>Fantom\'s Hosting - FileManager - Rename file</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 	echo '<meta name=viewport content="width=device-width, initial-scale=1">';
 	echo '</head><body>';
@@ -424,7 +424,7 @@ function send_rename($dir){
 
 function send_edit($ftp, $dir){
 	echo '<!DOCTYPE html><html><head>';
-	echo '<title>Anon\'s Hosting - FileManager - Edit file</title>';
+	echo '<title>Fantom\'s Hosting - FileManager - Edit file</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 	echo '<meta name=viewport content="width=device-width, initial-scale=1">';
 	echo '</head><body>';
