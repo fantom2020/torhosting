@@ -54,9 +54,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 header('Content-Type: text/html; charset=UTF-8');
 ?>
 <!DOCTYPE html><html><head>
-<title>Anon's Hosting - Delete account</title>
+<title>Fantom's Hosting - Delete account</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="author" content="Anon Site">
+<meta name="author" content="Fantom Site">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head><body>
 <p>This will delete your account and all data asociated with it. It can't be un-done. Are you sure?</p>
